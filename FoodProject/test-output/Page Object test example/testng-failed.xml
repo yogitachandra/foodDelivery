@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite guice-stage="DEVELOPMENT" name="Failed suite [Page Object test example]">
+  <parameter name="appURL" value="https://www.google.co.in/"/>
+  <parameter name="browserType" value="chrome"/>
+  <test name="sample test(failed)">
+    <classes>
+      <class name="com.tests.searchTest">
+        <methods>
+          <include name="testEmptyString"/>
+          <include name="setup"/>
+        </methods>
+      </class> <!-- com.tests.searchTest -->
+    </classes>
+  </test> <!-- sample test(failed) -->
+</suite> <!-- Failed suite [Page Object test example] -->
