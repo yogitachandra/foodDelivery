@@ -1,115 +1,37 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results skipped="1" failed="0" ignored="0" total="1" passed="0">
+<testng-results skipped="0" failed="0" ignored="0" total="4" passed="4">
   <reporter-output>
   </reporter-output>
-  <suite name="Default suite" duration-ms="258" started-at="2017-09-12T11:01:22Z" finished-at="2017-09-12T11:01:22Z">
+  <suite name="Page Object test example" duration-ms="26774" started-at="2017-09-13T18:16:49Z" finished-at="2017-09-13T18:17:16Z">
     <groups>
     </groups>
-    <test name="Default test" duration-ms="258" started-at="2017-09-12T11:01:22Z" finished-at="2017-09-12T11:01:22Z">
-      <class name="com.tests.searchTest">
-        <test-method status="FAIL" signature="setup()[pri:0, instance:com.tests.searchTest@59f99ea]" name="setup" is-config="true" duration-ms="203" started-at="2017-09-12T16:31:22Z" finished-at="2017-09-12T16:31:22Z">
-          <exception class="org.openqa.selenium.WebDriverException">
-            <message>
-              <![CDATA[Cannot find firefox binary in PATH. Make sure firefox is installed. OS appears to be: VISTA
-Build info: version: 'unknown', revision: 'unknown', time: 'unknown'
-System info: host: 'YOGITA325401', ip: '192.168.112.84', os.name: 'Windows 7', os.arch: 'amd64', os.version: '6.1', java.version: '1.8.0_91'
-Driver info: driver.version: FirefoxDriver]]>
-            </message>
-            <full-stacktrace>
-              <![CDATA[org.openqa.selenium.WebDriverException: Cannot find firefox binary in PATH. Make sure firefox is installed. OS appears to be: VISTA
-Build info: version: 'unknown', revision: 'unknown', time: 'unknown'
-System info: host: 'YOGITA325401', ip: '192.168.112.84', os.name: 'Windows 7', os.arch: 'amd64', os.version: '6.1', java.version: '1.8.0_91'
-Driver info: driver.version: FirefoxDriver
-	at org.openqa.selenium.firefox.FirefoxBinary.<init>(FirefoxBinary.java:115)
-	at java.util.Optional.orElseGet(Unknown Source)
-	at org.openqa.selenium.firefox.FirefoxOptions.getBinary(FirefoxOptions.java:257)
-	at org.openqa.selenium.firefox.FirefoxDriver.toExecutor(FirefoxDriver.java:200)
-	at org.openqa.selenium.firefox.FirefoxDriver.<init>(FirefoxDriver.java:103)
-	at org.openqa.selenium.firefox.FirefoxDriver.<init>(FirefoxDriver.java:99)
-	at com.tests.searchTest.setup(searchTest.java:34)
-	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
-	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
-	at java.lang.reflect.Method.invoke(Unknown Source)
-	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:108)
-	at org.testng.internal.Invoker.invokeConfigurationMethod(Invoker.java:523)
-	at org.testng.internal.Invoker.invokeConfigurations(Invoker.java:224)
-	at org.testng.internal.Invoker.invokeConfigurations(Invoker.java:146)
-	at org.testng.internal.TestMethodWorker.invokeBeforeClassMethods(TestMethodWorker.java:165)
-	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:105)
-	at org.testng.TestRunner.privateRun(TestRunner.java:776)
-	at org.testng.TestRunner.run(TestRunner.java:634)
-	at org.testng.SuiteRunner.runTest(SuiteRunner.java:425)
-	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:420)
-	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:385)
-	at org.testng.SuiteRunner.run(SuiteRunner.java:334)
-	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
-	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
-	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1318)
-	at org.testng.TestNG.runSuitesLocally(TestNG.java:1243)
-	at org.testng.TestNG.runSuites(TestNG.java:1161)
-	at org.testng.TestNG.run(TestNG.java:1129)
-	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:114)
-	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
-	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
-]]>
-            </full-stacktrace>
-          </exception> <!-- org.openqa.selenium.WebDriverException -->
+    <test name="sample test" duration-ms="26774" started-at="2017-09-13T18:16:49Z" finished-at="2017-09-13T18:17:16Z">
+      <class name="com.tests.SearchTest">
+        <test-method status="PASS" signature="setUp()[pri:0, instance:com.tests.SearchTest@3e6fa38a]" name="setUp" is-config="true" duration-ms="11217" started-at="2017-09-13T23:46:49Z" finished-at="2017-09-13T23:47:00Z">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- setup -->
-        <test-method status="SKIP" signature="testLocationSuggestion()[pri:0, instance:com.tests.searchTest@59f99ea]" name="testLocationSuggestion" duration-ms="1" started-at="2017-09-12T16:31:22Z" finished-at="2017-09-12T16:31:22Z">
-          <exception class="org.openqa.selenium.WebDriverException">
-            <message>
-              <![CDATA[Cannot find firefox binary in PATH. Make sure firefox is installed. OS appears to be: VISTA
-Build info: version: 'unknown', revision: 'unknown', time: 'unknown'
-System info: host: 'YOGITA325401', ip: '192.168.112.84', os.name: 'Windows 7', os.arch: 'amd64', os.version: '6.1', java.version: '1.8.0_91'
-Driver info: driver.version: FirefoxDriver]]>
-            </message>
-            <full-stacktrace>
-              <![CDATA[org.openqa.selenium.WebDriverException: Cannot find firefox binary in PATH. Make sure firefox is installed. OS appears to be: VISTA
-Build info: version: 'unknown', revision: 'unknown', time: 'unknown'
-System info: host: 'YOGITA325401', ip: '192.168.112.84', os.name: 'Windows 7', os.arch: 'amd64', os.version: '6.1', java.version: '1.8.0_91'
-Driver info: driver.version: FirefoxDriver
-	at org.openqa.selenium.firefox.FirefoxBinary.<init>(FirefoxBinary.java:115)
-	at java.util.Optional.orElseGet(Unknown Source)
-	at org.openqa.selenium.firefox.FirefoxOptions.getBinary(FirefoxOptions.java:257)
-	at org.openqa.selenium.firefox.FirefoxDriver.toExecutor(FirefoxDriver.java:200)
-	at org.openqa.selenium.firefox.FirefoxDriver.<init>(FirefoxDriver.java:103)
-	at org.openqa.selenium.firefox.FirefoxDriver.<init>(FirefoxDriver.java:99)
-	at com.tests.searchTest.setup(searchTest.java:34)
-	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
-	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
-	at java.lang.reflect.Method.invoke(Unknown Source)
-	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:108)
-	at org.testng.internal.Invoker.invokeConfigurationMethod(Invoker.java:523)
-	at org.testng.internal.Invoker.invokeConfigurations(Invoker.java:224)
-	at org.testng.internal.Invoker.invokeConfigurations(Invoker.java:146)
-	at org.testng.internal.TestMethodWorker.invokeBeforeClassMethods(TestMethodWorker.java:165)
-	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:105)
-	at org.testng.TestRunner.privateRun(TestRunner.java:776)
-	at org.testng.TestRunner.run(TestRunner.java:634)
-	at org.testng.SuiteRunner.runTest(SuiteRunner.java:425)
-	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:420)
-	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:385)
-	at org.testng.SuiteRunner.run(SuiteRunner.java:334)
-	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
-	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
-	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1318)
-	at org.testng.TestNG.runSuitesLocally(TestNG.java:1243)
-	at org.testng.TestNG.runSuites(TestNG.java:1161)
-	at org.testng.TestNG.run(TestNG.java:1129)
-	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:114)
-	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
-	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
-]]>
-            </full-stacktrace>
-          </exception> <!-- org.openqa.selenium.WebDriverException -->
+        </test-method> <!-- setUp -->
+        <test-method status="PASS" signature="testEmptyAddress()[pri:0, instance:com.tests.SearchTest@3e6fa38a]" name="testEmptyAddress" duration-ms="3270" started-at="2017-09-13T23:47:01Z" finished-at="2017-09-13T23:47:04Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testEmptyAddress -->
+        <test-method status="PASS" signature="testLocationSuggestion()[pri:0, instance:com.tests.SearchTest@3e6fa38a]" name="testLocationSuggestion" duration-ms="2742" started-at="2017-09-13T23:47:04Z" finished-at="2017-09-13T23:47:07Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- testLocationSuggestion -->
-      </class> <!-- com.tests.searchTest -->
-    </test> <!-- Default test -->
-  </suite> <!-- Default suite -->
+        <test-method status="PASS" signature="testValidAddress()[pri:0, instance:com.tests.SearchTest@3e6fa38a]" name="testValidAddress" duration-ms="3140" started-at="2017-09-13T23:47:07Z" finished-at="2017-09-13T23:47:10Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testValidAddress -->
+        <test-method status="PASS" signature="testWrongPostalCode()[pri:0, instance:com.tests.SearchTest@3e6fa38a]" name="testWrongPostalCode" duration-ms="4244" started-at="2017-09-13T23:47:10Z" finished-at="2017-09-13T23:47:14Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testWrongPostalCode -->
+        <test-method status="PASS" signature="tearDown()[pri:0, instance:com.tests.SearchTest@3e6fa38a]" name="tearDown" is-config="true" duration-ms="2133" started-at="2017-09-13T23:47:14Z" finished-at="2017-09-13T23:47:16Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+      </class> <!-- com.tests.SearchTest -->
+    </test> <!-- sample test -->
+  </suite> <!-- Page Object test example -->
 </testng-results>

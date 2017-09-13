@@ -2,81 +2,38 @@ package com.tests;
 
 import static org.testng.Assert.assertEquals;
 
-import java.util.List;
-import java.util.concurrent.TimeUnit;
-
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
-import org.testng.Assert;
-import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
-import com.main.pages.*;
 
-public class searchTest {
+import com.main.pages.SearchPage;
 
-	private WebDriver driver;
+public class SearchTest extends BaseClassTest {
 
-	@BeforeClass
-	public void setup() {
-		// driver=getDriver();
-
-		System.setProperty("webdriver.chrome.driver", ".//chromedriver.exe");
-		driver = new ChromeDriver();
-		// System.setProperty("webdriver.firefox.bin",
-		// "C:\\Users\\yogitachandra\\AppData\\Local\\Mozilla
-		// Firefox\\firefox.exe"); //works
-
-		// System.setProperty("webdriver.firefox.marionette",".//geckodriver.exe");
-		// driver = new FirefoxDriver();
-
-		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-
-		String baseUrl = "https://www.lieferando.de/en/";
-		driver.get(baseUrl);
-		driver.manage().window().maximize();
-
-	}
-
-	/*
-	 * @Test public void verifyPage() { System.out.println("Home page test...");
-	 * searchPage basePage = new searchPage(driver);
-	 * Assert.assertTrue(basePage.verifyBasePageTitle(),
-	 * "Home page title doesn't match"); }
-	 */
-
-	// @Test(priority=0)
+	 @Test(priority = 0)
 
 	public void testValidAddress() {
+		String baseUrl = "https://www.lieferando.de/en/";
+		driver.get(baseUrl);
 
-		WebDriverWait wait = new WebDriverWait(driver, 15);
-		wait.until(ExpectedConditions.visibilityOfElementLocated(By.name("mysearchstring"))).click();
-		driver.findElement(By.name("mysearchstring")).sendKeys("Munich Marriott Hotel, Berliner Straﬂe, Munich");
+		SearchPage searchPage = new SearchPage(driver);
+		searchPage.typeInSearchTextBox("Munich Marriott Hotel, Berliner Straﬂe, Munich");
+		String addressResult = searchPage.selectDropdown();
 
-		// WebElement select =
-		// driver.findElement(By.id("iautoCompleteDropDownContent"));
-		WebElement select = driver.findElement(By.cssSelector(".autoCompleteDropDownContent span"));
-		String text = select.getText();
-		select.click();
-		System.out.println(text);
-
+		assertEquals(addressResult, "Munich Marriott Hotel, Berliner Straﬂe, Munich", "Correct address displayed");
 	}
 
 	// verify error message when empty
-	// @Test(priority=0)
+	@Test(priority=0)
 
-	public void testNoAddress() {
-
+	public void testEmptyAddress() {
+		String baseUrl = "https://www.lieferando.de/en/";
+		driver.get(baseUrl);
 		WebDriverWait wait = new WebDriverWait(driver, 15);
-		wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector(".submitBtn span"))).click();
-		By element = By.cssSelector(".deliveryareaerror");
-		String text = wait.until(ExpectedConditions.visibilityOfElementLocated(element)).getText();
 
-		System.out.println(text);
+		SearchPage searchPage = new SearchPage(driver);
+		searchPage.clickSubmit();
+		String text = wait.until(ExpectedConditions.visibilityOf(searchPage.errorDeliveryArea())).getText();
 
 		assertEquals(text,
 				"The entered postcode is invalid. A valid postcode needs to consist out of 5 digits, for example: 10115.",
@@ -84,33 +41,26 @@ public class searchTest {
 
 	}
 
-	// Please enter your street and house number
 
-	// The entered postcode does not exist or is not valid. Please check your
-	// input and try again.
-	// @Test(priority=0)
+	// The entered postcode does not exist or is not valid. Please check your input and try again.
+	@Test(priority = 0)
 
 	public void testWrongPostalCode() {
+		String baseUrl = "https://www.lieferando.de/en/";
+		driver.get(baseUrl);
+
+		SearchPage searchPage = new SearchPage(driver);
+		searchPage.typeInSearchTextBox("53666");
 
 		WebDriverWait wait = new WebDriverWait(driver, 15);
-		wait.until(ExpectedConditions.visibilityOfElementLocated(By.name("mysearchstring"))).click();
-		driver.findElement(By.name("mysearchstring")).sendKeys("33666");
 
-		wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector(".cta-inner span"))).click(); // to
-																												// get
-																												// the
-																												// submit
-																												// button
-		wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector(".submitBtn span"))).click();
+		searchPage.clickBackground();
+		searchPage.clickSubmit();
 
-		By element = By.cssSelector(".deliveryareaerror");
-		String text = wait.until(ExpectedConditions.visibilityOfElementLocated(element)).getText();
-
-		System.out.println(text);
+		String text = wait.until(ExpectedConditions.visibilityOf(searchPage.errorDeliveryArea())).getText();
 
 		assertEquals(text,
 				"The entered postcode does not exist or is not valid. Please check your input and try again.", "True");
-
 	}
 
 	// Please enter your street and house number
@@ -118,26 +68,21 @@ public class searchTest {
 	@Test(priority = 0)
 
 	public void testLocationSuggestion() {
+		String baseUrl = "https://www.lieferando.de/en/";
+		driver.get(baseUrl);
+
+		SearchPage searchPage = new SearchPage(driver);
+		searchPage.clickSubmit();
+		searchPage.typeInSearchTextBox("33666");
 
 		WebDriverWait wait = new WebDriverWait(driver, 15);
-		wait.until(ExpectedConditions.visibilityOfElementLocated(By.name("mysearchstring"))).click();
-		driver.findElement(By.name("mysearchstring")).sendKeys("33666");
+		String text = wait.until(ExpectedConditions.visibilityOf(searchPage.errorSuggestionLocation())).getText();
 
-		// wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector(".cta-inner
-		// span"))).click(); //to get the submit button
-		// wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector(".submitBtn
-		// span"))).click();
-
-		By element = By.cssSelector(".suggestions-location");
-		String text = wait.until(ExpectedConditions.visibilityOfElementLocated(element)).getText();
-
-		System.out.println(text);
-//add is displayed
 		assertEquals(text, "Please enter your street and house number", "True");
 
 	}
-	
+
 	// verify language
-	
-	
+	// #42 in address
+
 }

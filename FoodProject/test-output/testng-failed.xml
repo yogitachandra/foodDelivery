@@ -3,12 +3,13 @@
 <suite guice-stage="DEVELOPMENT" name="Failed suite [Default suite]">
   <test name="Default test(failed)">
     <classes>
-      <class name="com.tests.searchTest">
+      <class name="com.tests.SearchTest">
         <methods>
-          <include name="setup"/>
-          <include name="testLocationSuggestion"/>
+          <include name="setUp"/>
+          <include name="tearDown"/>
+          <include name="testValidAddress"/>
         </methods>
-      </class> <!-- com.tests.searchTest -->
+      </class> <!-- com.tests.SearchTest -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->
