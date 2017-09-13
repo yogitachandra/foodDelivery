@@ -5,6 +5,10 @@
     <classes>
       <class name="com.tests.SearchTest">
         <methods>
+          <include name="testWrongPostalCode"/>
+          <include name="testEmptyAddress"/>
+          <include name="testResultInDropdown"/>
+          <include name="testLocationSuggestion"/>
           <include name="setUp"/>
           <include name="tearDown"/>
           <include name="testValidAddress"/>

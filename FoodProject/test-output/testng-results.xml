@@ -1,37 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results skipped="0" failed="0" ignored="0" total="4" passed="4">
+<testng-results skipped="0" failed="0" ignored="0" total="1" passed="1">
   <reporter-output>
   </reporter-output>
-  <suite name="Page Object test example" duration-ms="26774" started-at="2017-09-13T18:16:49Z" finished-at="2017-09-13T18:17:16Z">
+  <suite name="Default suite" duration-ms="21784" started-at="2017-09-13T20:10:04Z" finished-at="2017-09-13T20:10:26Z">
     <groups>
     </groups>
-    <test name="sample test" duration-ms="26774" started-at="2017-09-13T18:16:49Z" finished-at="2017-09-13T18:17:16Z">
+    <test name="Default test" duration-ms="21784" started-at="2017-09-13T20:10:04Z" finished-at="2017-09-13T20:10:26Z">
       <class name="com.tests.SearchTest">
-        <test-method status="PASS" signature="setUp()[pri:0, instance:com.tests.SearchTest@3e6fa38a]" name="setUp" is-config="true" duration-ms="11217" started-at="2017-09-13T23:46:49Z" finished-at="2017-09-13T23:47:00Z">
+        <test-method status="PASS" signature="setUp()[pri:0, instance:com.tests.SearchTest@6f7fd0e6]" name="setUp" is-config="true" duration-ms="11960" started-at="2017-09-14T01:40:04Z" finished-at="2017-09-14T01:40:16Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUp -->
-        <test-method status="PASS" signature="testEmptyAddress()[pri:0, instance:com.tests.SearchTest@3e6fa38a]" name="testEmptyAddress" duration-ms="3270" started-at="2017-09-13T23:47:01Z" finished-at="2017-09-13T23:47:04Z">
+        <test-method status="PASS" signature="testResultInDropdown()[pri:0, instance:com.tests.SearchTest@6f7fd0e6]" name="testResultInDropdown" duration-ms="7598" started-at="2017-09-14T01:40:16Z" finished-at="2017-09-14T01:40:24Z">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- testEmptyAddress -->
-        <test-method status="PASS" signature="testLocationSuggestion()[pri:0, instance:com.tests.SearchTest@3e6fa38a]" name="testLocationSuggestion" duration-ms="2742" started-at="2017-09-13T23:47:04Z" finished-at="2017-09-13T23:47:07Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- testLocationSuggestion -->
-        <test-method status="PASS" signature="testValidAddress()[pri:0, instance:com.tests.SearchTest@3e6fa38a]" name="testValidAddress" duration-ms="3140" started-at="2017-09-13T23:47:07Z" finished-at="2017-09-13T23:47:10Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- testValidAddress -->
-        <test-method status="PASS" signature="testWrongPostalCode()[pri:0, instance:com.tests.SearchTest@3e6fa38a]" name="testWrongPostalCode" duration-ms="4244" started-at="2017-09-13T23:47:10Z" finished-at="2017-09-13T23:47:14Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- testWrongPostalCode -->
-        <test-method status="PASS" signature="tearDown()[pri:0, instance:com.tests.SearchTest@3e6fa38a]" name="tearDown" is-config="true" duration-ms="2133" started-at="2017-09-13T23:47:14Z" finished-at="2017-09-13T23:47:16Z">
+        </test-method> <!-- testResultInDropdown -->
+        <test-method status="PASS" signature="tearDown()[pri:0, instance:com.tests.SearchTest@6f7fd0e6]" name="tearDown" is-config="true" duration-ms="2188" started-at="2017-09-14T01:40:24Z" finished-at="2017-09-14T01:40:26Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDown -->
       </class> <!-- com.tests.SearchTest -->
-    </test> <!-- sample test -->
-  </suite> <!-- Page Object test example -->
+    </test> <!-- Default test -->
+  </suite> <!-- Default suite -->
 </testng-results>
