@@ -7,9 +7,9 @@
         <methods>
           <include name="testWrongPostalCode"/>
           <include name="testEmptyAddress"/>
-          <include name="testResultInDropdown"/>
+          <include name="cleanUp"/>
+          <include name="initializeTestBaseSetup"/>
           <include name="testLocationSuggestion"/>
-          <include name="setUp"/>
           <include name="tearDown"/>
           <include name="testValidAddress"/>
         </methods>

@@ -4,13 +4,17 @@
   <parameter name="appURL" value="https://www.google.co.in/"/>
   <parameter name="browserType" value="chrome"/>
   <test name="sample test(failed)">
+    <parameter name="browser" value="Chrome"/>
+    <parameter name="appURL" value="https://www.lieferando.de/en/"/>
     <classes>
-      <class name="com.tests.searchTest">
+      <class name="com.tests.SearchTest">
         <methods>
-          <include name="testEmptyString"/>
-          <include name="setup"/>
+          <include name="testWrongPostalCode"/>
+          <include name="cleanUp"/>
+          <include name="initializeTestBaseSetup"/>
+          <include name="tearDown"/>
         </methods>
-      </class> <!-- com.tests.searchTest -->
+      </class> <!-- com.tests.SearchTest -->
     </classes>
   </test> <!-- sample test(failed) -->
 </suite> <!-- Failed suite [Page Object test example] -->

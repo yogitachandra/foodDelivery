@@ -1,123 +1,108 @@
 package com.tests;
 
-import org.testng.annotations.Test;
+import java.util.List;
+
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.testng.AssertJUnit;
-import static org.testng.Assert.assertEquals;
-
-import java.util.List;
-import java.util.ListIterator;
-
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.Test;
 
-import com.main.pages.SearchPage;
+import com.pageObject.ResultPage;
+import com.pageObject.SearchPage;
 
 public class SearchTest extends BaseClassTest {
 
 	// @Test(priority = 0)
 
-//	@Test
+	@Test(priority = 5)
 	public void testValidAddress() {
-		String baseUrl = "https://www.lieferando.de/en/";
-		driver.get(baseUrl);
+		WebDriver driver = getDriver();
+		WebDriverWait wait = new WebDriverWait(driver, 15);
+		String input = "Munich Marriott Hotel, Berliner Straﬂe, Munich";
 
 		SearchPage searchPage = new SearchPage(driver);
-		searchPage.typeInSearchTextBox("Munich Marriott Hotel, Berliner Straﬂe, Munich");
+
+		driver.navigate().refresh();
+		searchPage.typeInSearchTextBox(input);
 		String addressResult = searchPage.selectDropdown();
 
-		AssertJUnit.assertEquals(addressResult, "Munich Marriott Hotel, Berliner Straﬂe, Munich",
-				"Correct address displayed");
+		ResultPage resultPage = new ResultPage(driver);
+		resultPage.waitForResultPageToLoad(wait);
+		String result = resultPage.verifyResultPageAddress();
+
+		Assert.assertEquals(addressResult, "Munich Marriott Hotel, Berliner Straﬂe, Munich",
+				"Correct address is not displayed");
+		Assert.assertEquals(result, input);
+
 	}
 
 	// verify error message when empty
-	// @Test(priority=0)
-
-//	@Test
+	@Test(priority = 1)
 	public void testEmptyAddress() {
-		String baseUrl = "https://www.lieferando.de/en/";
-		driver.get(baseUrl);
+		WebDriver driver = getDriver();
 		WebDriverWait wait = new WebDriverWait(driver, 15);
-
 		SearchPage searchPage = new SearchPage(driver);
-		searchPage.clickSubmit();
-		String text = wait.until(ExpectedConditions.visibilityOf(searchPage.errorDeliveryArea())).getText();
 
+		searchPage.clickSubmit();
+		String text = searchPage.errorDeliveryArea(wait);
 		AssertJUnit.assertEquals(text,
-				"The entered postcode is invalid. A valid postcode needs to consist out of 5 digits, for example: 10115.",
-				"True");
+				"The entered postcode is invalid. A valid postcode needs to consist out of 5 digits, for example: 10115.");
 
 	}
 
 	// The entered postcode does not exist or is not valid. Please check your
 	// input and try again.
-	// @Test(priority = 0)
-
-//	@Test
+	@Test(priority = 3)
 	public void testWrongPostalCode() {
-		String baseUrl = "https://www.lieferando.de/en/";
-		driver.get(baseUrl);
-
-		SearchPage searchPage = new SearchPage(driver);
-		searchPage.typeInSearchTextBox("53666");
-
+		WebDriver driver = getDriver();
 		WebDriverWait wait = new WebDriverWait(driver, 15);
+		SearchPage searchPage = new SearchPage(driver);
 
+		searchPage.typeInSearchTextBox("53666");
 		searchPage.clickBackground();
 		searchPage.clickSubmit();
 
-		String text = wait.until(ExpectedConditions.visibilityOf(searchPage.errorDeliveryArea())).getText();
+		String text = searchPage.errorDeliveryArea(wait);
 
-		AssertJUnit.assertEquals(text,
-				"The entered postcode does not exist or is not valid. Please check your input and try again.", "True");
+		Assert.assertEquals(text,
+				"The entered postcode does not exist or is not valid. Please check your input and try again.");
 	}
 
 	// Please enter your street and house number
 
-	// @Test(priority = 0)
+	@Test(priority = 2)
 
-//	@Test
+	// @Test
 	public void testLocationSuggestion() {
-		String baseUrl = "https://www.lieferando.de/en/";
-		driver.get(baseUrl);
-
+		WebDriver driver = getDriver();
+		WebDriverWait wait = new WebDriverWait(driver, 15);
 		SearchPage searchPage = new SearchPage(driver);
-		searchPage.clickSubmit();
+
 		searchPage.typeInSearchTextBox("33666");
+		String text = searchPage.errorSuggestionLocation(wait);
 
-		WebDriverWait wait = new WebDriverWait(driver, 15);
-		String text = wait.until(ExpectedConditions.visibilityOf(searchPage.errorSuggestionLocation())).getText();
-
-		AssertJUnit.assertEquals(text, "Please enter your street and house number", "True");
+		Assert.assertEquals(text, "Please enter your street and house number");
 
 	}
 
-	// verify language
 	// #42 in address
-	@Test
+	@Test(priority = 4)
 	public void testResultInDropdown() {
-		String baseUrl = "https://www.lieferando.de/en/";
-		driver.get(baseUrl);
+		WebDriver driver = getDriver();
 		WebDriverWait wait = new WebDriverWait(driver, 15);
-
 		SearchPage searchPage = new SearchPage(driver);
+
 		searchPage.typeInSearchTextBox("##42");
-		wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector(".autoCompleteDropDown")));
-		List<WebElement> allResultList = driver.findElements(By.cssSelector(".autoCompleteDropDownContent span"));
 
-		System.out.println(allResultList.size());
-		
-	    for (WebElement element: allResultList) {
-	         String result = element.getText();
-	         System.out.println(element.getText());
-	          Assert.assertTrue(result.contains("42"), "false");
+		List<WebElement> allResultList = searchPage.getResult(wait);
 
-	          }
+		for (WebElement element : allResultList) {
+			String result = element.getText();
+			Assert.assertTrue(result.contains("42"), "Address does not match the entered address" + result);
+		}
 
 	}
 
-
-	}
+}

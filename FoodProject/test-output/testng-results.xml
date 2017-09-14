@@ -1,25 +1,114 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results skipped="0" failed="0" ignored="0" total="1" passed="1">
+<testng-results skipped="0" failed="1" ignored="0" total="5" passed="4">
   <reporter-output>
   </reporter-output>
-  <suite name="Default suite" duration-ms="21784" started-at="2017-09-13T20:10:04Z" finished-at="2017-09-13T20:10:26Z">
+  <suite name="Page Object test example" duration-ms="37341" started-at="2017-09-14T11:28:26Z" finished-at="2017-09-14T11:29:03Z">
     <groups>
     </groups>
-    <test name="Default test" duration-ms="21784" started-at="2017-09-13T20:10:04Z" finished-at="2017-09-13T20:10:26Z">
+    <test name="sample test" duration-ms="37341" started-at="2017-09-14T11:28:26Z" finished-at="2017-09-14T11:29:03Z">
       <class name="com.tests.SearchTest">
-        <test-method status="PASS" signature="setUp()[pri:0, instance:com.tests.SearchTest@6f7fd0e6]" name="setUp" is-config="true" duration-ms="11960" started-at="2017-09-14T01:40:04Z" finished-at="2017-09-14T01:40:16Z">
+        <test-method status="PASS" signature="initializeTestBaseSetup(java.lang.String, java.lang.String)[pri:0, instance:com.tests.SearchTest@1e88b3c]" name="initializeTestBaseSetup" is-config="true" duration-ms="15148" started-at="2017-09-14T16:58:26Z" finished-at="2017-09-14T16:58:41Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[Chrome]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[https://www.lieferando.de/en/]]>
+              </value>
+            </param>
+          </params>
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- setUp -->
-        <test-method status="PASS" signature="testResultInDropdown()[pri:0, instance:com.tests.SearchTest@6f7fd0e6]" name="testResultInDropdown" duration-ms="7598" started-at="2017-09-14T01:40:16Z" finished-at="2017-09-14T01:40:24Z">
+        </test-method> <!-- initializeTestBaseSetup -->
+        <test-method status="PASS" signature="testEmptyAddress()[pri:1, instance:com.tests.SearchTest@1e88b3c]" name="testEmptyAddress" duration-ms="1987" started-at="2017-09-14T16:58:41Z" finished-at="2017-09-14T16:58:43Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testEmptyAddress -->
+        <test-method status="PASS" signature="cleanUp()[pri:0, instance:com.tests.SearchTest@1e88b3c]" name="cleanUp" is-config="true" duration-ms="209" started-at="2017-09-14T16:58:43Z" finished-at="2017-09-14T16:58:43Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- cleanUp -->
+        <test-method status="PASS" signature="testLocationSuggestion()[pri:2, instance:com.tests.SearchTest@1e88b3c]" name="testLocationSuggestion" duration-ms="4415" started-at="2017-09-14T16:58:43Z" finished-at="2017-09-14T16:58:48Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testLocationSuggestion -->
+        <test-method status="PASS" signature="cleanUp()[pri:0, instance:com.tests.SearchTest@1e88b3c]" name="cleanUp" is-config="true" duration-ms="24" started-at="2017-09-14T16:58:48Z" finished-at="2017-09-14T16:58:48Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- cleanUp -->
+        <test-method status="FAIL" signature="testWrongPostalCode()[pri:3, instance:com.tests.SearchTest@1e88b3c]" name="testWrongPostalCode" duration-ms="1965" started-at="2017-09-14T16:58:48Z" finished-at="2017-09-14T16:58:50Z">
+          <exception class="java.lang.AssertionError">
+            <message>
+              <![CDATA[expected [The entered postcode does not exist or is not valid. Please check your input and try again.] but found [Die eingegebene Postleitzahl besteht nicht oder ist falsch. Bitte kontrolliere Deine Eingabe und versuche es erneut.]]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[java.lang.AssertionError: expected [The entered postcode does not exist or is not valid. Please check your input and try again.] but found [Die eingegebene Postleitzahl besteht nicht oder ist falsch. Bitte kontrolliere Deine Eingabe und versuche es erneut.]
+	at org.testng.Assert.fail(Assert.java:93)
+	at org.testng.Assert.failNotEquals(Assert.java:512)
+	at org.testng.Assert.assertEqualsImpl(Assert.java:134)
+	at org.testng.Assert.assertEquals(Assert.java:115)
+	at org.testng.Assert.assertEquals(Assert.java:189)
+	at org.testng.Assert.assertEquals(Assert.java:199)
+	at com.tests.SearchTest.testWrongPostalCode(SearchTest.java:72)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:108)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:669)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:877)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1201)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
+	at org.testng.TestRunner.privateRun(TestRunner.java:776)
+	at org.testng.TestRunner.run(TestRunner.java:634)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:425)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:420)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:385)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:334)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1318)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1243)
+	at org.testng.TestNG.runSuites(TestNG.java:1161)
+	at org.testng.TestNG.run(TestNG.java:1129)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:114)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.AssertionError -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testWrongPostalCode -->
+        <test-method status="PASS" signature="cleanUp()[pri:0, instance:com.tests.SearchTest@1e88b3c]" name="cleanUp" is-config="true" duration-ms="74" started-at="2017-09-14T16:58:50Z" finished-at="2017-09-14T16:58:50Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- cleanUp -->
+        <test-method status="PASS" signature="testResultInDropdown()[pri:4, instance:com.tests.SearchTest@1e88b3c]" name="testResultInDropdown" duration-ms="1015" started-at="2017-09-14T16:58:50Z" finished-at="2017-09-14T16:58:51Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- testResultInDropdown -->
-        <test-method status="PASS" signature="tearDown()[pri:0, instance:com.tests.SearchTest@6f7fd0e6]" name="tearDown" is-config="true" duration-ms="2188" started-at="2017-09-14T01:40:24Z" finished-at="2017-09-14T01:40:26Z">
+        <test-method status="PASS" signature="cleanUp()[pri:0, instance:com.tests.SearchTest@1e88b3c]" name="cleanUp" is-config="true" duration-ms="6" started-at="2017-09-14T16:58:51Z" finished-at="2017-09-14T16:58:51Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- cleanUp -->
+        <test-method status="PASS" signature="testValidAddress()[pri:5, instance:com.tests.SearchTest@1e88b3c]" name="testValidAddress" duration-ms="11151" started-at="2017-09-14T16:58:51Z" finished-at="2017-09-14T16:59:02Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testValidAddress -->
+        <test-method status="PASS" signature="cleanUp()[pri:0, instance:com.tests.SearchTest@1e88b3c]" name="cleanUp" is-config="true" duration-ms="378" started-at="2017-09-14T16:59:02Z" finished-at="2017-09-14T16:59:02Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- cleanUp -->
+        <test-method status="PASS" signature="tearDown()[pri:0, instance:com.tests.SearchTest@1e88b3c]" name="tearDown" is-config="true" duration-ms="942" started-at="2017-09-14T16:59:02Z" finished-at="2017-09-14T16:59:03Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDown -->
       </class> <!-- com.tests.SearchTest -->
-    </test> <!-- Default test -->
-  </suite> <!-- Default suite -->
+    </test> <!-- sample test -->
+  </suite> <!-- Page Object test example -->
 </testng-results>

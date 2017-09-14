@@ -1,19 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite guice-stage="DEVELOPMENT" name="Failed suite [Default suite]">
-  <test name="Default test(failed)">
+<suite guice-stage="DEVELOPMENT" name="Failed suite [Page Object test example]">
+  <parameter name="appURL" value="https://www.google.co.in/"/>
+  <parameter name="browserType" value="chrome"/>
+  <test name="sample test(failed)">
+    <parameter name="browser" value="Chrome"/>
+    <parameter name="appURL" value="https://www.lieferando.de/en/"/>
     <classes>
       <class name="com.tests.SearchTest">
         <methods>
           <include name="testWrongPostalCode"/>
-          <include name="testEmptyAddress"/>
-          <include name="testResultInDropdown"/>
-          <include name="testLocationSuggestion"/>
-          <include name="setUp"/>
+          <include name="cleanUp"/>
+          <include name="initializeTestBaseSetup"/>
           <include name="tearDown"/>
-          <include name="testValidAddress"/>
         </methods>
       </class> <!-- com.tests.SearchTest -->
     </classes>
-  </test> <!-- Default test(failed) -->
-</suite> <!-- Failed suite [Default suite] -->
+  </test> <!-- sample test(failed) -->
+</suite> <!-- Failed suite [Page Object test example] -->

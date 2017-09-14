@@ -1,4 +1,4 @@
-package com.main.pages;
+package com.pageObject;
 
 import org.testng.annotations.AfterMethod;
 import org.openqa.selenium.WebDriver;
@@ -28,7 +28,7 @@ public class TestBaseSetup {
 		default:
 			System.out.println("browser : " + browserType
 					+ " is invalid, Launching Firefox as browser of choice..");
-			driver = initFirefoxDriver(appURL);
+			driver = initChromeDriver(appURL);
 		}
 	}
 
